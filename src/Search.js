@@ -7,9 +7,9 @@ import Book from './Book';
 
 class Search extends Component {
   state = {
-    query: '',
-    books: [],
-    searchResult: []
+    query: '', //query string
+    books: [], // my books
+    searchResult: [] // search result
   }
 
   componentDidMount() {
@@ -18,20 +18,26 @@ class Search extends Component {
       })
   }
 
+//When the user type to update query, will call submitQuery function
   updateQuery = (query) => {
     this.setState({ query: query.trim() }, this.submitQuery)
   }
 
+//Resposible for submiting query string to server and fetch corresponding data
   submitQuery() {
+    //Check if query string is not empty
     if(this.state.query) {
       BooksAPI.search(this.state.query).then((result) => {
+        //if response result got error, set search result to emtpy array
         if (result.error) {
             console.log('No matching search results')
             return this.setState({ searchResult: [] })
         } else {
-            result.forEach(b => {
-              let f = this.state.books.filter(B => B.id === b.id);
-              if (f[0]) {b.shelf = f[0].shelf;}
+            // Matching the book status if the book is exsited in my bookshelf
+            let mybook
+            result.map(b => {
+              mybook = this.state.books.filter(B => B.id === b.id);
+              if (mybook[0]) {b.shelf = mybook[0].shelf;}
             });
             // console.log(result)
             return this.setState({ searchResult: result })
@@ -42,6 +48,7 @@ class Search extends Component {
     }
   }
 
+// When user add the book to my bookshelf {currentlyReading, wantToRead, reed}
   updateBook = (book, shelf) => {
     BooksAPI.update(book, shelf).then(books => {
       book.shelf = shelf;
@@ -50,6 +57,7 @@ class Search extends Component {
       }))
     })
   }
+
 
 	render() {
       const {query, searchResult } = this.state

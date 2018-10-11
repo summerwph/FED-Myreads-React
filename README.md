@@ -24,3 +24,4 @@ In this project, which are including the following:
 
 ### Resource/Referencce
 1. [Udacity MyReeds Project](https://www.diigo.com/outliner/fkkvtl/Udacity-MyReads%3A-My-Reads%3A-Book-Tracking-App-Project-(project-%236)?key=4sfz2eik4g)
+2. Tutorial Requests: FEND Project 6 - Walk Through (SHORT) (https://www.youtube.com/watch?v=N8bU1oWlLwY&feature=youtu.be)

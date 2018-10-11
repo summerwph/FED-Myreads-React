@@ -19,21 +19,21 @@ class Search extends Component {
   }
 
   updateQuery = (query) => {
-    this.setState({ query: query.trim() }, this.submitQuery())
+    this.setState({ query: query.trim() }, this.submitQuery)
   }
 
   submitQuery() {
-    if (this.state.query) {
+    if(this.state.query) {
       BooksAPI.search(this.state.query).then((result) => {
         if (result.error) {
-            console.log('Error: No search result')
+            console.log('No matching search results')
             return this.setState({ searchResult: [] })
         } else {
             result.forEach(b => {
-              let f =this.state.books.filter(B => B.id === b.id);
+              let f = this.state.books.filter(B => B.id === b.id);
               if (f[0]) {b.shelf = f[0].shelf;}
             });
-            console.log(result)
+            // console.log(result)
             return this.setState({ searchResult: result })
         }
       })
@@ -52,10 +52,9 @@ class Search extends Component {
   }
 
 	render() {
-      const { query, searchResult } = this.state
+      const {query, searchResult } = this.state
 
 		return (
-
 		<div className="search-books">
         <div className="search-books-bar">
           <Link to='/' className='close-search'>Close</Link>

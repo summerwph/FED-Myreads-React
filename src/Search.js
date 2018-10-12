@@ -20,7 +20,7 @@ class Search extends Component {
 
 //When the user type to update query, will call submitQuery function
   updateQuery = (query) => {
-    this.setState({ query: query.trim() }, this.submitQuery)
+    this.setState({ query }, this.submitQuery)
   }
 
 //Resposible for submiting query string to server and fetch corresponding data

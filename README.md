@@ -1,6 +1,6 @@
 # MyReeds Project - React
 
-In this project, which are including the followings:
+In this project, which is including the followings:
 - Main Page (ListBook.js)
   1. Showing three bookshelves(currentlyReading, wantToRead, reed) for books.
   2. Each book is shown on the correct shelf, along with its title and author(s).

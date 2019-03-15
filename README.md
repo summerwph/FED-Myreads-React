@@ -19,6 +19,7 @@ In this project, which are including the followings:
    - run `npm install` to install the dependency
    - run `npm start` to start server
 4. Visit the site in your browser at http://localhost:3000
+![HomePage](/src/img/Myreads.jpg)
 
 ### Resource/References
 1. [Udacity MyReeds Project](https://www.diigo.com/outliner/fkkvtl/Udacity-MyReads%3A-My-Reads%3A-Book-Tracking-App-Project-(project-%236)?key=4sfz2eik4g)
